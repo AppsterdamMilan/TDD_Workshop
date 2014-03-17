@@ -1,6 +1,7 @@
 #%RAML 0.8
 ---
 title: timetasks  
+baseUri: http://timetasks.appsterdammilan.com/
 version: v1  
 
 /timeTasks:  
@@ -26,6 +27,10 @@ version: v1
 
   post:
     description: Create a new timetask
+    responses:
+      201:
+        description: |
+          timetask created
     queryParameters:  
       description:  
         displayName: Description
@@ -92,9 +97,9 @@ version: v1
           example: 1395068086
           required: true
       responses:
-        200:
-          body:    
-            application/json:
+        204:
+          description: |
+            timetask updated
         404:
           description: |
             No timetask with the required id
