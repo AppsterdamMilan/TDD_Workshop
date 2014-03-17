@@ -1,0 +1,101 @@
+#%RAML 0.8
+---
+title: timetasks  
+baseUri: http://timetask.appsterdam.com/{version}   
+version: v1  
+
+/timeTasks:  
+  get:  
+    description: Get the task list in the desired order
+    queryParameters:  
+       order:  
+        displayName: Order
+        type: enum {magic, priority, due}
+        description: Order of the task list
+        example: magic
+        required: false
+    responses:
+      200:
+        description: |
+          The list
+        body:    
+          application/json: |  
+            [ 
+            { "id":133421,description":"Buy choccolate","time":30,"priority"=2,"due":1395068086 },
+            { "id":199999,"description":"Buy mil","time":20,"due":1395068086 }
+            ]
+
+  post:
+    description: Create a new timetask
+    queryParameters:  
+      description:  
+        displayName: Description
+        type: string
+        description: What to do 
+        example: Buy some milk
+        required: true
+      time:  
+        displayName: Time
+        type: integer
+        description: Estimated required time for the task
+        example: 20
+        required: true
+      priority:  
+        displayName: Priority
+        type: integer
+        description: Priority of the task, from 0 (low) to 2(high). Default 1.
+        example: 1
+        required: false    
+      due:  
+        displayName: Due Date
+        type: integer
+        description: Timestamp of the deadline for the task
+        example: 1395068086
+        required: true
+
+  /{taskId}:
+    get:
+      description: Get a timetask by its id
+      responses:
+        200:
+          body:    
+            application/json:
+              {"description":"Buy choccolate","time":30,"priority"=2,"due":1395068086}
+        404:
+          description: |
+            No timetask with the required id
+                
+    put:
+      description: Update a timetask by its id
+      queryParameters:  
+        description:  
+          displayName: Description
+          type: string
+          description: What to do 
+          example: Buy some milk
+          required: true
+        time:  
+          displayName: Time
+          type: integer
+          description: Estimated required time for the task
+          example: 20
+          required: true
+        priority:  
+          displayName: Priority
+          type: integer
+          description: Priority of the task, from 0 (low) to 2(high). Default 1.
+          example: 1
+          required: false    
+        due:  
+          displayName: Due Date
+          type: integer
+          description: Timestamp of the deadline for the task
+          example: 1395068086
+          required: true
+      responses:
+        200:
+          body:    
+            application/json:
+        404:
+          description: |
+            No timetask with the required id
