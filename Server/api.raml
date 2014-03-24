@@ -33,10 +33,6 @@ version: v1
 
   post:
     description: Create a new timetask
-    responses:
-      201:
-        description: |
-          timetask created
     queryParameters:  
       description:  
         displayName: Description
@@ -62,6 +58,13 @@ version: v1
         description: Timestamp of the deadline for the task
         example: 1395068086
         required: false
+    responses:
+      201:
+        description: |
+          timetask created
+      body:    
+          application/json: |  
+            { "id":133421,description":"Buy chocolate","time":30,"priority"=2,"due":1395068086, "completed":false,"lastUpdate":1395064566 }
 
   /{taskId}:
     get:
