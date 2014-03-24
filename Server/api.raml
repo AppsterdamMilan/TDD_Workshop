@@ -14,6 +14,12 @@ version: v1
         description: Order of the task list
         example: magic
         required: false
+       showCompleted:  
+        displayName: Show Completed
+        type: bool
+        description: If true, also completed task are included.
+        example: true
+        required: false        
     responses:
       200:
         description: |
@@ -106,6 +112,15 @@ version: v1
         204:
           description: |
             timetask updated
+        404:
+          description: |
+            No timetask with the required id
+    delete:
+      description: Delete a timetask by its id
+      responses:
+        204:
+          description: |
+            timetask deleted
         404:
           description: |
             No timetask with the required id
