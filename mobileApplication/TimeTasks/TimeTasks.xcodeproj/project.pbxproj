@@ -20,7 +20,8 @@
 		4570039818E0B38D00BC15CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570037718E0B38D00BC15CD /* Foundation.framework */; };
 		4570039918E0B38D00BC15CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570037B18E0B38D00BC15CD /* UIKit.framework */; };
 		457003A118E0B38D00BC15CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4570039F18E0B38D00BC15CD /* InfoPlist.strings */; };
-		457003A318E0B38D00BC15CD /* TimeTasksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003A218E0B38D00BC15CD /* TimeTasksTests.m */; };
+		457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003AE18E0B3F700BC15CD /* ADMTimeTask.m */; };
+		457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,9 @@
 		4570039618E0B38D00BC15CD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4570039E18E0B38D00BC15CD /* TimeTasksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeTasksTests-Info.plist"; sourceTree = "<group>"; };
 		457003A018E0B38D00BC15CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		457003A218E0B38D00BC15CD /* TimeTasksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTasksTests.m; sourceTree = "<group>"; };
+		457003AD18E0B3F700BC15CD /* ADMTimeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTimeTask.h; sourceTree = "<group>"; };
+		457003AE18E0B3F700BC15CD /* ADMTimeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTask.m; sourceTree = "<group>"; };
+		457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTaskTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		4570037D18E0B38D00BC15CD /* TimeTasks */ = {
 			isa = PBXGroup;
 			children = (
+				457003AC18E0B3D400BC15CD /* Model */,
 				4570038618E0B38D00BC15CD /* ADMAppDelegate.h */,
 				4570038718E0B38D00BC15CD /* ADMAppDelegate.m */,
 				4570038918E0B38D00BC15CD /* Main.storyboard */,
@@ -137,8 +141,8 @@
 		4570039C18E0B38D00BC15CD /* TimeTasksTests */ = {
 			isa = PBXGroup;
 			children = (
-				457003A218E0B38D00BC15CD /* TimeTasksTests.m */,
 				4570039D18E0B38D00BC15CD /* Supporting Files */,
+				457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */,
 			);
 			path = TimeTasksTests;
 			sourceTree = "<group>";
@@ -150,6 +154,15 @@
 				4570039F18E0B38D00BC15CD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		457003AC18E0B3D400BC15CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				457003AD18E0B3F700BC15CD /* ADMTimeTask.h */,
+				457003AE18E0B3F700BC15CD /* ADMTimeTask.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */,
 				4570038E18E0B38D00BC15CD /* ADMViewController.m in Sources */,
 				4570038418E0B38D00BC15CD /* main.m in Sources */,
 				4570038818E0B38D00BC15CD /* ADMAppDelegate.m in Sources */,
@@ -260,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457003A318E0B38D00BC15CD /* TimeTasksTests.m in Sources */,
+				457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +471,7 @@
 				457003A818E0B38D00BC15CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457003A918E0B38D00BC15CD /* Build configuration list for PBXNativeTarget "TimeTasksTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +480,7 @@
 				457003AB18E0B38D00BC15CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
