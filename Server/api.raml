@@ -21,8 +21,8 @@ version: v1
         body:    
           application/json: |  
             [ 
-            { "id":133421,description":"Buy choccolate","time":30,"priority"=2,"due":1395068086 },
-            { "id":199999,"description":"Buy mil","time":20,"due":1395068086 }
+            { "id":133421,description":"Buy chocolate","time":30,"priority"=2,"due":1395068086, "completed":false,"lastUpdate":1395064566 },
+            { "id":199999,"description":"Buy mil","time":20,"due":1395068086, "completed":false,"lastUpdate":1395064677 }
             ]
 
   post:
@@ -55,7 +55,7 @@ version: v1
         type: integer
         description: Timestamp of the deadline for the task
         example: 1395068086
-        required: true
+        required: false
 
   /{taskId}:
     get:
@@ -95,7 +95,13 @@ version: v1
           type: integer
           description: Timestamp of the deadline for the task
           example: 1395068086
-          required: true
+          required: false
+        completed:  
+          displayName: Completed
+          type: integer
+          description: Wheter or not the task is completed
+          example: 1395068086
+          required: true  
       responses:
         204:
           description: |
