@@ -8,6 +8,9 @@
 
 #import "ADMTableViewHandler.h"
 
+
+#import "ADMTableViewCell.h"
+
 @implementation ADMTableViewHandler
 
 - (id)init
@@ -32,6 +35,18 @@
 
 
     return [_tableData count];
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    static NSString *cellIdentifier = @"ADMTableViewCellIdentifier";
+    
+    ADMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    [cell drawForTask: [_tableData objectAtIndex:indexPath.row]];
+    
+    return cell;
+
 }
 
 @end

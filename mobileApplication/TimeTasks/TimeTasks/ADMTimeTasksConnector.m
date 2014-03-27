@@ -10,7 +10,7 @@
 
 #import "ADMTimeTask.h"
 
-#define kBaseUrl @"http://timetasks.appsterdammilan.com/"
+#define kBaseUrl @"http://localhost:8080/"
 #define kTaskListApi @"timeTasks"
 
 

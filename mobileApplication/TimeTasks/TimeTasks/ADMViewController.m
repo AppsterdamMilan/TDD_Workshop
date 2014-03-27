@@ -9,8 +9,13 @@
 #import "ADMViewController.h"
 
 #import "ADMTimeTasksConnector.h"
+#import "ADMTableViewHandler.h"
 
-@interface ADMViewController ()
+@interface ADMViewController (){
+
+    ADMTableViewHandler *_handler;
+}
+
 
 @end
 
@@ -19,7 +24,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.title = @"TimeTasks!";
+    _handler = [ADMTableViewHandler new];
+    _tableView.delegate = _handler;
+    _tableView.dataSource = _handler;
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,7 +43,13 @@
     
     ADMTimeTasksConnector *sharedConnector = [ADMTimeTasksConnector sharedConnector];
     
-    [sharedConnector downloadTimeTasksListWithCompletionHandler:nil failureHandler:nil];
+    [sharedConnector downloadTimeTasksListWithCompletionHandler:^(NSArray *taskList) {
+        
+        [_handler setTableData: taskList];
+        [self.tableView reloadData];
+        
+    } failureHandler:nil];
+
 
 }
 

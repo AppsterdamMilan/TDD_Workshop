@@ -6,16 +6,19 @@
 //  Copyright (c) 2014 Mush. All rights reserved.
 //
 
+#import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
 
 #import "ADMViewController.h"
 
 //utility
 #import "XCTestCase+ADMTestingExtensions.h"
+#import <OCMock/OCMock.h>
 
 //participants
 #import "ADMTimeTasksConnector.h"
 #import "ADMTimeTask.h"
+#import "ADMTableViewHandler.h"
 
 @implementation ADMTimeTasksConnector (TestingExtensions)
 
@@ -23,41 +26,6 @@
 
     [XCTestCase addBoolPayloadToObject:self boolValue:YES];
 
-//    NSArray *mockModel = @[
-//                           @{
-//                               @"id":@"133421",
-//                               @"description":@"Buy chocolate",
-//                               @"time":@30,
-//                               @"priority":@2,
-//                               @"due":@1395068086,
-//                               @"completed":@NO,
-//                               @"lastUpdate":@1395064566
-//                               },
-//                           @{
-//                               @"id":@"133422",
-//                               @"description":@"Buy milk",
-//                               @"time":@20,
-//                               @"priority":@1,
-//                               @"due":@1395068086,
-//                               @"completed":@NO,
-//                               @"lastUpdate":@1395064566
-//                               }
-//                           
-//
-//                        ];
-//    
-//    NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:2];
-//    for (NSDictionary *rawTask in mockModel) {
-//        
-//        ADMTimeTask *newTask = [[ADMTimeTask alloc] initWithDictionary: rawTask];
-//        
-//        [tmp addObject: newTask];
-//        
-//        
-//    }
-//    if(completionHandler)
-//        completionHandler([NSArray arrayWithArray:tmp]);
-    
     
 }
 
@@ -98,6 +66,14 @@
 
 }
 
+- (void) testThatAdmViewControllerHasName{
+
+    [unit viewDidLoad];
+
+    XCTAssertTrue([unit.title isEqualToString:@"TimeTasks!"], @"unit should be called TimeTasks!");
+
+}
+
 - (void) testThatAdmViewControllerHasTableView{
 
    
@@ -125,22 +101,107 @@
 //
 //}
 
+- (void) testThatAdmViewControllerInitializesTableViewHandler{
+    
+    [unit viewDidLoad];
+    
+    ADMTableViewHandler *handler = [unit valueForKey:@"_handler"];
+    
+    XCTAssertNotNil( handler, @"unit's tableviewhandler should have been initialized");
+    
+}
+
+- (void) testThatAdmViewControllerHooksTableViewDelegateAndDatasourceToHandler{
+    
+    [unit viewDidLoad];
+    
+    ADMTableViewHandler *handler = [unit valueForKey:@"_handler"];
+    
+    UITableView *tableView = [unit tableView];
+    
+    XCTAssertTrue( (tableView.delegate == handler)&&(tableView.dataSource == handler) , @"unit should have linked handler with tableview delegate and datasource");
+    
+}
+
+
 
 - (void) testThatAdmViewControllerBeginsDownloadOfNewTaskListOnAppear{
     
     
     [unit viewDidLoad];
     
-    [unit viewDidAppear:NO];
     
     ADMTimeTasksConnector *sharedConnector = [ADMTimeTasksConnector sharedConnector];
+    id mock = [OCMockObject partialMockForObject: sharedConnector];
+    [[mock expect] downloadTimeTasksListWithCompletionHandler:OCMOCK_ANY failureHandler:OCMOCK_ANY];
     
-    
-    BOOL hasBeenCalled = [XCTestCase getBoolPayloadFromObject: sharedConnector];
-    
-    XCTAssertTrue( hasBeenCalled, @"unit should have begun download task on connector");
+    [unit viewDidAppear:NO];
+
+    [mock verify];
     
     
 }
+
+- (void) testThatAdmViewControllerSetsHandlerTableDataWhenDownloadIsCompleted{
+
+
+    [unit viewDidLoad];
+    
+    ADMTableViewHandler *handler = [unit valueForKey:@"_handler"];
+    ADMTimeTasksConnector *sharedConnector = [ADMTimeTasksConnector sharedConnector];
+    id mockConnector = [OCMockObject partialMockForObject: sharedConnector];
+   
+    
+    __block NSArray *expectedArray = @[@"asd",@"lol"];
+    
+    [[[mockConnector expect] andDo:^(NSInvocation *invocation) {
+        
+        void (^firstBlock)(NSArray *);
+        [invocation getArgument:&firstBlock atIndex:2];
+        
+        firstBlock(expectedArray);
+        
+    }] downloadTimeTasksListWithCompletionHandler:OCMOCK_ANY failureHandler:OCMOCK_ANY];
+    
+    id mockHandler = [OCMockObject partialMockForObject: handler];
+    [[mockHandler expect] setTableData:expectedArray];
+    
+    [unit viewDidAppear:NO];
+    
+
+    [mockHandler verify];
+}
+
+- (void) testThatAdmViewControllerReloadsTableViewWhenDownloadIsCompleted{
+
+    [unit viewDidLoad];
+    
+    
+    UITableView *tableView = [unit tableView];
+    
+    id mockTable = [OCMockObject partialMockForObject: tableView];
+    [[mockTable expect] reloadData];
+    
+    
+    ADMTimeTasksConnector *sharedConnector = [ADMTimeTasksConnector sharedConnector];
+    id mockConnector = [OCMockObject partialMockForObject: sharedConnector];
+    
+    __block NSArray *expectedArray = @[@"asd",@"lol"];
+    
+    [[[mockConnector expect] andDo:^(NSInvocation *invocation) {
+        
+        void (^firstBlock)(NSArray *);
+        [invocation getArgument:&firstBlock atIndex:2];
+        
+        firstBlock(expectedArray);
+        
+    }] downloadTimeTasksListWithCompletionHandler:OCMOCK_ANY failureHandler:OCMOCK_ANY];
+    
+    [unit viewDidAppear: NO];
+    
+    [mockTable verify];
+
+}
+
 
 @end

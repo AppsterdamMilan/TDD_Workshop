@@ -28,6 +28,9 @@
 		45C0805818E45BB000D84073 /* ADMViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805718E45BB000D84073 /* ADMViewControllerTests.m */; };
 		45C0805B18E4642300D84073 /* ADMTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805A18E4642300D84073 /* ADMTableViewHandler.m */; };
 		45C0805D18E4643600D84073 /* ADMTableViewHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */; };
+		45C0806E18E475E900D84073 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C0806D18E475E900D84073 /* libOCMock.a */; };
+		45C0807118E4ACCE00D84073 /* ADMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0807018E4ACCE00D84073 /* ADMTableViewCell.m */; };
+		45C0807318E4ACE500D84073 /* ADMTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0807218E4ACE500D84073 /* ADMTableViewCellTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,10 @@
 		45C0805918E4642300D84073 /* ADMTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTableViewHandler.h; sourceTree = "<group>"; };
 		45C0805A18E4642300D84073 /* ADMTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewHandler.m; sourceTree = "<group>"; };
 		45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewHandlerTests.m; sourceTree = "<group>"; };
+		45C0806D18E475E900D84073 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = usr/lib/libOCMock.a; sourceTree = "<group>"; };
+		45C0806F18E4ACCE00D84073 /* ADMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTableViewCell.h; sourceTree = "<group>"; };
+		45C0807018E4ACCE00D84073 /* ADMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewCell.m; sourceTree = "<group>"; };
+		45C0807218E4ACE500D84073 /* ADMTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewCellTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C0806E18E475E900D84073 /* libOCMock.a in Frameworks */,
 				4570039718E0B38D00BC15CD /* XCTest.framework in Frameworks */,
 				4570039918E0B38D00BC15CD /* UIKit.framework in Frameworks */,
 				4570039818E0B38D00BC15CD /* Foundation.framework in Frameworks */,
@@ -119,6 +127,7 @@
 		4570037618E0B38D00BC15CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45C0806D18E475E900D84073 /* libOCMock.a */,
 				4570037718E0B38D00BC15CD /* Foundation.framework */,
 				4570037918E0B38D00BC15CD /* CoreGraphics.framework */,
 				4570037B18E0B38D00BC15CD /* UIKit.framework */,
@@ -165,6 +174,7 @@
 				457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */,
 				45C0805718E45BB000D84073 /* ADMViewControllerTests.m */,
 				45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */,
+				45C0807218E4ACE500D84073 /* ADMTableViewCellTests.m */,
 				4570039D18E0B38D00BC15CD /* Supporting Files */,
 			);
 			path = TimeTasksTests;
@@ -183,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				457003AD18E0B3F700BC15CD /* ADMTimeTask.h */,
+				45C0806F18E4ACCE00D84073 /* ADMTableViewCell.h */,
+				45C0807018E4ACCE00D84073 /* ADMTableViewCell.m */,
 				457003AE18E0B3F700BC15CD /* ADMTimeTask.m */,
 				457003C618E33EFE00BC15CD /* ADMTimeTasksConnector.h */,
 				457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */,
@@ -299,6 +311,7 @@
 				45C0805B18E4642300D84073 /* ADMTableViewHandler.m in Sources */,
 				457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */,
 				4570038E18E0B38D00BC15CD /* ADMViewController.m in Sources */,
+				45C0807118E4ACCE00D84073 /* ADMTableViewCell.m in Sources */,
 				4570038418E0B38D00BC15CD /* main.m in Sources */,
 				4570038818E0B38D00BC15CD /* ADMAppDelegate.m in Sources */,
 			);
@@ -310,6 +323,7 @@
 			files = (
 				45C0805D18E4643600D84073 /* ADMTableViewHandlerTests.m in Sources */,
 				457003CA18E33F1000BC15CD /* ADMTimeTasksConnectorTests.m in Sources */,
+				45C0807318E4ACE500D84073 /* ADMTableViewCellTests.m in Sources */,
 				457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */,
 				453937E918E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m in Sources */,
 				45C0805818E45BB000D84073 /* ADMViewControllerTests.m in Sources */,
@@ -465,10 +479,24 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/include\"",
+				);
 				INFOPLIST_FILE = "TimeTasksTests/TimeTasksTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimeTasks",
+					"$(PROJECT_DIR)/TimeTasks/usr/lib",
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -487,10 +515,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeTasks/TimeTasks-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/include\"",
+				);
 				INFOPLIST_FILE = "TimeTasksTests/TimeTasksTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimeTasks",
+					"$(PROJECT_DIR)/TimeTasks/usr/lib",
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

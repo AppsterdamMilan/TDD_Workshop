@@ -7,11 +7,19 @@
 //
 
 #import <XCTest/XCTest.h>
+
 #import "ADMTableViewHandler.h"
+
+//participants
+#import "ADMTableViewCell.h"
+#import "ADMViewController.h"
+#import "ADMTimeTask.h"
+#import <OCMock/OCMock.h>
 
 @interface ADMTableViewHandlerTests : XCTestCase{
 
     ADMTableViewHandler *unit;
+    ADMViewController *vc;
 }
 
 @end
@@ -22,13 +30,49 @@
 {
     [super setUp];
     unit = [ADMTableViewHandler new];
+    
+
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    unit = nil;
+    vc = nil;
     [super tearDown];
 }
+
+
+- (void)setMockTableData {
+    
+    NSDictionary *rawTask = @{
+                              @"id": @"1234",
+                              @"description":@"Buy Milk",
+                              @"time" : @120,
+                              @"priority" : @1,
+                              @"completed" : @YES
+                              };
+    
+    ADMTimeTask *newTask = [[ADMTimeTask alloc] initWithDictionary:rawTask];
+    
+    NSArray *mockData = @[newTask];
+    
+    unit.tableData = mockData;
+}
+
+- (void)hookHandlerToViewController {
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ADMViewControllerIdentifier"];
+    
+    [vc performSelector:@selector(loadView) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
+
+    
+    [vc viewDidLoad];
+    vc.tableView.delegate = unit;
+    vc.tableView.dataSource = unit;
+}
+
 
 - (void) testThatHandlerIsTableViewDelegate{
 
@@ -74,5 +118,29 @@
     XCTAssertEqual(rows, [mockData count], @"unit should return number of rows equal to tabledata count");
 
 }
+
+- (void) testThatHandlerReturnsAnAdmTableViewCell{
+
+    [self setMockTableData];
+    
+    [self hookHandlerToViewController];
+    
+    id returnedCell = [unit tableView:vc.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    XCTAssertTrue( [returnedCell isKindOfClass:[ADMTableViewCell class]], @"returned cell should be an ADMTableViewCell");
+}
+
+- (void) testThatHandlerMakesCellDrawForSpecificTask{
+    
+    [self setMockTableData];
+    
+    [self hookHandlerToViewController];
+
+    ADMTableViewCell *cell = (ADMTableViewCell *)[unit tableView: vc.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    XCTAssertTrue([cell.taskDescriptionLabel.text isEqualToString:@"Buy Milk"], @"unit should have drawn cell for specific task");
+
+}
+
 
 @end
