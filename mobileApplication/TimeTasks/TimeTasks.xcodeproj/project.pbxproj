@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453937E918E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 453937E818E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m */; };
 		4570037818E0B38D00BC15CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570037718E0B38D00BC15CD /* Foundation.framework */; };
 		4570037A18E0B38D00BC15CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570037918E0B38D00BC15CD /* CoreGraphics.framework */; };
 		4570037C18E0B38D00BC15CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570037B18E0B38D00BC15CD /* UIKit.framework */; };
@@ -22,6 +23,9 @@
 		457003A118E0B38D00BC15CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4570039F18E0B38D00BC15CD /* InfoPlist.strings */; };
 		457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003AE18E0B3F700BC15CD /* ADMTimeTask.m */; };
 		457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */; };
+		457003C818E33EFE00BC15CD /* ADMTimeTasksConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */; };
+		457003CA18E33F1000BC15CD /* ADMTimeTasksConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */; };
+		45C0805818E45BB000D84073 /* ADMViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805718E45BB000D84073 /* ADMViewControllerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		453937E718E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+ADMTestingExtensions.h"; sourceTree = "<group>"; };
+		453937E818E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+ADMTestingExtensions.m"; sourceTree = "<group>"; };
 		4570037418E0B38D00BC15CD /* TimeTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4570037718E0B38D00BC15CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4570037918E0B38D00BC15CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +62,10 @@
 		457003AD18E0B3F700BC15CD /* ADMTimeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTimeTask.h; sourceTree = "<group>"; };
 		457003AE18E0B3F700BC15CD /* ADMTimeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTask.m; sourceTree = "<group>"; };
 		457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTaskTests.m; sourceTree = "<group>"; };
+		457003C618E33EFE00BC15CD /* ADMTimeTasksConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTimeTasksConnector.h; sourceTree = "<group>"; };
+		457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTasksConnector.m; sourceTree = "<group>"; };
+		457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTasksConnectorTests.m; sourceTree = "<group>"; };
+		45C0805718E45BB000D84073 /* ADMViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMViewControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +151,12 @@
 		4570039C18E0B38D00BC15CD /* TimeTasksTests */ = {
 			isa = PBXGroup;
 			children = (
-				4570039D18E0B38D00BC15CD /* Supporting Files */,
+				453937E718E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.h */,
+				453937E818E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m */,
+				457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */,
 				457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */,
+				45C0805718E45BB000D84073 /* ADMViewControllerTests.m */,
+				4570039D18E0B38D00BC15CD /* Supporting Files */,
 			);
 			path = TimeTasksTests;
 			sourceTree = "<group>";
@@ -161,6 +175,8 @@
 			children = (
 				457003AD18E0B3F700BC15CD /* ADMTimeTask.h */,
 				457003AE18E0B3F700BC15CD /* ADMTimeTask.m */,
+				457003C618E33EFE00BC15CD /* ADMTimeTasksConnector.h */,
+				457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -263,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457003C818E33EFE00BC15CD /* ADMTimeTasksConnector.m in Sources */,
 				457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */,
 				4570038E18E0B38D00BC15CD /* ADMViewController.m in Sources */,
 				4570038418E0B38D00BC15CD /* main.m in Sources */,
@@ -274,7 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457003CA18E33F1000BC15CD /* ADMTimeTasksConnectorTests.m in Sources */,
 				457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */,
+				453937E918E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m in Sources */,
+				45C0805818E45BB000D84073 /* ADMViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
