@@ -8,6 +8,8 @@
 
 #import "ADMViewController.h"
 
+#import "ADMTimeTasksConnector.h"
+
 @interface ADMViewController ()
 
 @end
@@ -24,6 +26,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:animated];
+    
+    ADMTimeTasksConnector *sharedConnector = [ADMTimeTasksConnector sharedConnector];
+    
+    [sharedConnector downloadTimeTasksListWithCompletionHandler:nil failureHandler:nil];
+
 }
 
 @end

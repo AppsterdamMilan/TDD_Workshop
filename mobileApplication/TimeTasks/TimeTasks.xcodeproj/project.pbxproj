@@ -26,6 +26,8 @@
 		457003C818E33EFE00BC15CD /* ADMTimeTasksConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */; };
 		457003CA18E33F1000BC15CD /* ADMTimeTasksConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */; };
 		45C0805818E45BB000D84073 /* ADMViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805718E45BB000D84073 /* ADMViewControllerTests.m */; };
+		45C0805B18E4642300D84073 /* ADMTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805A18E4642300D84073 /* ADMTableViewHandler.m */; };
+		45C0805D18E4643600D84073 /* ADMTableViewHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTasksConnector.m; sourceTree = "<group>"; };
 		457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTimeTasksConnectorTests.m; sourceTree = "<group>"; };
 		45C0805718E45BB000D84073 /* ADMViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMViewControllerTests.m; sourceTree = "<group>"; };
+		45C0805918E4642300D84073 /* ADMTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMTableViewHandler.h; sourceTree = "<group>"; };
+		45C0805A18E4642300D84073 /* ADMTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewHandler.m; sourceTree = "<group>"; };
+		45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMTableViewHandlerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +130,15 @@
 		4570037D18E0B38D00BC15CD /* TimeTasks */ = {
 			isa = PBXGroup;
 			children = (
+				45C0805E18E46B2600D84073 /* Libs */,
 				457003AC18E0B3D400BC15CD /* Model */,
 				4570038618E0B38D00BC15CD /* ADMAppDelegate.h */,
 				4570038718E0B38D00BC15CD /* ADMAppDelegate.m */,
 				4570038918E0B38D00BC15CD /* Main.storyboard */,
 				4570038C18E0B38D00BC15CD /* ADMViewController.h */,
 				4570038D18E0B38D00BC15CD /* ADMViewController.m */,
+				45C0805918E4642300D84073 /* ADMTableViewHandler.h */,
+				45C0805A18E4642300D84073 /* ADMTableViewHandler.m */,
 				4570038F18E0B38D00BC15CD /* Images.xcassets */,
 				4570037E18E0B38D00BC15CD /* Supporting Files */,
 			);
@@ -156,6 +164,7 @@
 				457003C918E33F1000BC15CD /* ADMTimeTasksConnectorTests.m */,
 				457003B018E0B40700BC15CD /* ADMTimeTaskTests.m */,
 				45C0805718E45BB000D84073 /* ADMViewControllerTests.m */,
+				45C0805C18E4643600D84073 /* ADMTableViewHandlerTests.m */,
 				4570039D18E0B38D00BC15CD /* Supporting Files */,
 			);
 			path = TimeTasksTests;
@@ -179,6 +188,13 @@
 				457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		45C0805E18E46B2600D84073 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457003C818E33EFE00BC15CD /* ADMTimeTasksConnector.m in Sources */,
+				45C0805B18E4642300D84073 /* ADMTableViewHandler.m in Sources */,
 				457003AF18E0B3F700BC15CD /* ADMTimeTask.m in Sources */,
 				4570038E18E0B38D00BC15CD /* ADMViewController.m in Sources */,
 				4570038418E0B38D00BC15CD /* main.m in Sources */,
@@ -291,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C0805D18E4643600D84073 /* ADMTableViewHandlerTests.m in Sources */,
 				457003CA18E33F1000BC15CD /* ADMTimeTasksConnectorTests.m in Sources */,
 				457003B118E0B40700BC15CD /* ADMTimeTaskTests.m in Sources */,
 				453937E918E35C9F009F2763 /* XCTestCase+ADMTestingExtensions.m in Sources */,
@@ -448,6 +466,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "TimeTasksTests/TimeTasksTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TimeTasks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -466,6 +488,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeTasks/TimeTasks-Prefix.pch";
 				INFOPLIST_FILE = "TimeTasksTests/TimeTasksTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TimeTasks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
