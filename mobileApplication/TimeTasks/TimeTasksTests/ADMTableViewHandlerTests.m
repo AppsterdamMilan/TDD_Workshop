@@ -142,5 +142,77 @@
 
 }
 
+- (void) testThatSelectingCellNotCompletedTaskCompletesTheTask{
+
+    [self setMockTableData];
+    [self hookHandlerToViewController];
+    
+    [[unit.tableData objectAtIndex:0] setCompleted: NO];
+    
+    [unit tableView:vc.tableView didSelectRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    XCTAssertTrue( [[unit.tableData objectAtIndex:0] completed], @"selecting a row with an uncomplete task should have completed it");
+
+}
+
+//TODO: provare con ocmock
+- (void) testThatSelectingNotCompletedTaskChecksTheCellCell{
+
+    [self setMockTableData];
+    [self hookHandlerToViewController];
+    
+    [[unit.tableData objectAtIndex:0 ] setCompleted: NO];
+    
+    ADMTableViewCell *cell = (ADMTableViewCell *)[unit tableView:vc.tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    [cell setChecked: NO];
+    
+    NSData *notCheckedImageData = UIImagePNGRepresentation(cell.taskCheckBoxImageView.image);
+    
+    [unit tableView:vc.tableView didSelectRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    cell = (ADMTableViewCell *)[unit tableView:vc.tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    NSData *checkedImageData = UIImagePNGRepresentation(cell.taskCheckBoxImageView.image);
+    
+    XCTAssertFalse( [notCheckedImageData isEqualToData:checkedImageData], @"cell should have been checked");
+
+}
+
+- (void) testThatSelectingCellCompletedTaskUncompletesTheTask{
+
+    [self setMockTableData];
+    [self hookHandlerToViewController];
+    
+    [unit tableView:vc.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    XCTAssertTrue( ![[unit.tableData objectAtIndex:0] completed], @"selecting a row with a complete task should have uncomplete it");
+
+}
+
+- (void) testThatSelectingCompletedTaskUnchecksTheCellCell{
+    
+    [self setMockTableData];
+    [self hookHandlerToViewController];
+    
+    ADMTableViewCell *cell = (ADMTableViewCell *)[unit tableView:vc.tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+
+    NSData *checkedImageData = UIImagePNGRepresentation(cell.taskCheckBoxImageView.image);
+    
+    [unit tableView:vc.tableView didSelectRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    cell = (ADMTableViewCell *)[unit tableView:vc.tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    NSData *notCheckedImageData = UIImagePNGRepresentation(cell.taskCheckBoxImageView.image);
+
+    
+    XCTAssertFalse( [notCheckedImageData isEqualToData:checkedImageData], @"cell should have been checked");
+    
+}
+
+
+
+
 
 @end

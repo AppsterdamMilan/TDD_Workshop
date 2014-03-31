@@ -10,6 +10,7 @@
 
 
 #import "ADMTableViewCell.h"
+#import "ADMTimeTask.h"
 
 @implementation ADMTableViewHandler
 
@@ -41,12 +42,21 @@
 
     static NSString *cellIdentifier = @"ADMTableViewCellIdentifier";
     
-    ADMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ADMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     [cell drawForTask: [_tableData objectAtIndex:indexPath.row]];
     
     return cell;
 
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    ADMTimeTask *thisTask = [self.tableData objectAtIndex:indexPath.row];
+    BOOL completed = [thisTask completed];
+    thisTask.completed = !completed;
+    
+    [tableView reloadData];
 }
 
 @end

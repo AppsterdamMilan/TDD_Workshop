@@ -144,6 +144,8 @@
 				4570038618E0B38D00BC15CD /* ADMAppDelegate.h */,
 				4570038718E0B38D00BC15CD /* ADMAppDelegate.m */,
 				4570038918E0B38D00BC15CD /* Main.storyboard */,
+				45C0806F18E4ACCE00D84073 /* ADMTableViewCell.h */,
+				45C0807018E4ACCE00D84073 /* ADMTableViewCell.m */,
 				4570038C18E0B38D00BC15CD /* ADMViewController.h */,
 				4570038D18E0B38D00BC15CD /* ADMViewController.m */,
 				45C0805918E4642300D84073 /* ADMTableViewHandler.h */,
@@ -193,8 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				457003AD18E0B3F700BC15CD /* ADMTimeTask.h */,
-				45C0806F18E4ACCE00D84073 /* ADMTableViewCell.h */,
-				45C0807018E4ACCE00D84073 /* ADMTableViewCell.m */,
 				457003AE18E0B3F700BC15CD /* ADMTimeTask.m */,
 				457003C618E33EFE00BC15CD /* ADMTimeTasksConnector.h */,
 				457003C718E33EFE00BC15CD /* ADMTimeTasksConnector.m */,

@@ -182,7 +182,7 @@
     NSURLRequest *request = [sharedConnector valueForKey:@"_urlRequest"];
     NSString *apiURLString = [[request URL] absoluteString];
     
-    XCTAssertTrue( [apiURLString isEqualToString:@"http://timetasks.appsterdammilan.com/timeTasks"], @"connector url should have selected right api url for tasklist download");
+    XCTAssertTrue( [apiURLString isEqualToString:@"http://timetasks.appsterdammilan.com/timeTasks"] || [apiURLString isEqualToString:@"http://localhost:8080/timeTasks"], @"connector url should have selected right api url for tasklist download");
     
 }
 

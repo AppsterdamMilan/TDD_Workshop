@@ -47,6 +47,7 @@
 - (void) setChecked:(BOOL)checked{
 
     self.taskCheckBoxImageView.image = (checked) ? [UIImage imageNamed:@"checkbox_checked"] : [UIImage imageNamed:@"checkbox"];
+
 }
 
 @end
